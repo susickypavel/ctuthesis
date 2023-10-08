@@ -19,3 +19,4 @@ ctuman-*.pdf
 *.bbl
 
 /manual
+**/.build
