@@ -11,3 +11,6 @@
 *.sh
 *.toc
 ctuman-*.pdf
+
+*.fdb_latexmk
+*.fls
