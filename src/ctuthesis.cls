@@ -1,4 +1,4 @@
-%!TEX ROOT = ctutest.tex
+%!TEX ROOT = thesis.tex
 
 \RequirePackage{expl3,l3keys2e}
 \RequirePackage{environ}
@@ -13,7 +13,7 @@
 % but at the very same time, it's descriptive.
 
 % The core of the class.
-\input{ctuth-core.tex}
+\input{./common/ctuth-core.tex}
 
 % Process class keys (and call the trigger)
 \ProcessKeysOptions { ctuthesis }
@@ -38,8 +38,8 @@
 	\makeatletter
 	\ExplSyntaxOn
 	% Load the two files
-	\input{ctuth-pkg.tex}
-	\input{ctuth-templates.tex}
+	\input{./common/ctuth-pkg.tex}
+	\input{./common/ctuth-templates.tex}
 	\ExplSyntaxOff
 	\makeatother
 	% Once \ctuprocess is called, we disable keys marked 'nop'
@@ -55,7 +55,7 @@
 \DeclareDocumentCommand \ctuprocess@check { } { \msg_error:nn { ctuthesis } { ctuprocess-none } }
 \AtBeginDocument{\ctuprocess@check}
 
-\input{ctuth-names.tex}
+\input{./common/ctuth-names.tex}
 
 
 

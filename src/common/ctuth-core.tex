@@ -1,9 +1,9 @@
 
-%!TEX ROOT = ctutest.tex
+%!TEX ROOT = thesis.tex
 
 \ProvidesExplFile{ctuth-core.tex}%
-	{2016/06/15}{0.1 t1606152353}%MY TIMESTAMP HERE {0.1}
-	{"Core"\space part\space of\space the\space class\space ctuthesis}
+{2016/06/15}{0.1 t1606152353}%MY TIMESTAMP HERE {0.1}
+{"Core"\space part\space of\space the\space class\space ctuthesis}
 
 
 
@@ -88,19 +88,19 @@
 \tl_gset:Nn \g_ctuthesis_fontsize_tl {11pt}
 \seq_new:N \g_ctuthesis_languages_seq
 \keys_define:nn { ctuthesis } {
-	
+
 	% Only 11pt fontsize is allowed
 	fontsize .choices:nn = { 11pt } { \tl_gset_eq:NN \g_ctuthesis_fontsize_tl \l_keys_choice_tl },
-	
+
 	% Oneside option
 	oneside .bool_gset:c = { g_ctuthesis_switch_oneside_bool },
 	oneside .initial:n = { false },
 	twoside .meta:n = { oneside = false },
-	
+
 	% Draft option
 	draft .bool_gset:c = { g_ctuthesis_switch_draft_bool },
 	draft .initial:n = { false },
-	
+
 	% We use three languages:
 	% main for the work itself, ToC and LoFT
 	mainlanguage .choice:,
@@ -113,9 +113,9 @@
 
 	% otherlanguages will be simply passed on to babel
 	otherlanguages .code:n =
-		\seq_set_from_clist:Nn \l_temp_ctuthesis_a_seq { #1 }
-		\seq_gconcat:NNN \g_ctuthesis_languages_seq \g_ctuthesis_languages_seq \l_temp_ctuthesis_a_seq
-		,
+	\seq_set_from_clist:Nn \l_temp_ctuthesis_a_seq { #1 }
+	\seq_gconcat:NNN \g_ctuthesis_languages_seq \g_ctuthesis_languages_seq \l_temp_ctuthesis_a_seq
+	,
 
 }
 
@@ -150,7 +150,7 @@
 
 % Basic fields that are not language-dependent
 \tl_map_inline:nn { {author}{supervisor}{supervisor-specialist}{supervisor-address}{day}{month}{year}
-	  {facultynum}{specification-file}{preprint} } {
+		{facultynum}{specification-file}{preprint} } {
 	\keys_define:nn { ctuthesis } {
 		#1 .tl_gset:c = { g_ctuthesis_field_#1_tl },
 	}
@@ -160,7 +160,7 @@
 \tl_map_inline:Nn \g_ctuthesis_alllanguages_tl {
 	% Various fields in various languages
 	\tl_map_inline:nn { {title}{subtitle}{university}{university-endl}{faculty}{department}
-		  {doctype}{fieldofstudy}{subfieldofstudy}{keywords} } {
+			{doctype}{fieldofstudy}{subfieldofstudy}{keywords} } {
 		\keys_define:nn { ctuthesis } {
 			##1-#1 .tl_gset:c = g_ctuthesis_field_##1_#1_tl,
 		}
@@ -169,8 +169,8 @@
 	\tl_map_inline:nn { {mainlanguage}{titlelanguage}{secondlanguage} } {
 		\keys_define:nn { ctuthesis } {
 			##1 / #1 .code:n =
-				\tl_gset:cn { g_ctuthesis_field_##1_tl } { #1 }
-				\seq_gput_right:Nn \g_ctuthesis_languages_seq { #1 },
+			\tl_gset:cn { g_ctuthesis_field_##1_tl } { #1 }
+			\seq_gput_right:Nn \g_ctuthesis_languages_seq { #1 },
 		}
 	}
 	% The abstract is now language-dependent
@@ -192,7 +192,7 @@
 
 \tl_gset:Nn \g_ctuthesis_ctulstbg_tl { ctulstbg }
 \keys_define:nn { ctuthesis } {
-		ctulstbg .tl_gset:N = \g_ctuthesis_ctulstbg_tl
+	ctulstbg .tl_gset:N = \g_ctuthesis_ctulstbg_tl
 }
 
 
@@ -209,7 +209,7 @@
 	\bool_if:nT { \tl_if_exist_p:c { g_ctuthesis_field_mainlanguage_tl }
 		&& ! \tl_if_empty_p:c { g_ctuthesis_field_mainlanguage_tl }
 		&& ( ! \tl_if_exist_p:c { g_ctuthesis_field_titlelanguage_tl }
-			|| \tl_if_empty_p:c { g_ctuthesis_field_titlelanguage_tl } )
+		|| \tl_if_empty_p:c { g_ctuthesis_field_titlelanguage_tl } )
 	} {
 		\keys_set:nx { ctuthesis } { titlelanguage = \tl_use:c { g_ctuthesis_field_mainlanguage_tl } }
 	}
@@ -217,7 +217,7 @@
 	\bool_if:nT { \tl_if_exist_p:c { g_ctuthesis_field_mainlanguage_tl }
 		&& \tl_if_exist_p:c { g_ctuthesis_field_titlelanguage_tl }
 		&& ( ! \tl_if_exist_p:c { g_ctuthesis_field_secondlanguage_tl }
-			|| \tl_if_empty_p:c { g_ctuthesis_field_secondlanguage_tl } )
+		|| \tl_if_empty_p:c { g_ctuthesis_field_secondlanguage_tl } )
 	} {
 		\tl_if_eq:ccTF { g_ctuthesis_field_mainlanguage_tl } { g_ctuthesis_field_titlelanguage_tl } {
 			\tl_if_eq:xnTF { \tl_use:c { g_ctuthesis_field_mainlanguage_tl } } { english } {
@@ -266,25 +266,25 @@
 % Theme, template and field hadling - getters
 \NewDocumentCommand \ctutheme { >{\TrimSpaces}m } {
 	\cs_if_exist_use:cF { ctuthesis_theme_#1_var: } { \msg_error:nnx { ctuthesis } { unknown-theme } { #1 } }
-	}
+}
 
 \NewDocumentCommand \ctutemplate { >{\TrimSpaces}m } {
 	\cs_if_exist_use:cF { ctuthesis_template_#1_var: } { \msg_error:nnx { ctuthesis } { unknown-template } { #1 } }
-	}
+}
 
 % `\ctufield` supports the context language specifier as an optional argument
 \NewDocumentCommand \ctufield { s >{\TrimSpaces}o >{\TrimSpaces}m } {
 	\IfBooleanTF { #1 } {
 		\IfValueTF { #2 } {
-				\ctuthesis_field_use_default:nnn { #2 } { #3 } { }
+			\ctuthesis_field_use_default:nnn { #2 } { #3 } { }
 		} {
-				\ctuthesis_field_use_default:nn { #3 } { }
+			\ctuthesis_field_use_default:nn { #3 } { }
 		}
 	} {
 		\IfValueTF { #2 } {
-				\ctuthesis_field_use:nn { #2 } { #3 }
+			\ctuthesis_field_use:nn { #2 } { #3 }
 		} {
-				\ctuthesis_field_use:n { #3 }
+			\ctuthesis_field_use:n { #3 }
 		}
 	}
 }
@@ -298,8 +298,8 @@
 % #1->language, #2->field, #3->default value
 \cs_new:Nn \ctuthesis_field_use_default:nnn {
 	\ctuthesis_field_use_default:nn
-		{ #2_\ctuthesis_field_use_default:nn { #1 language } { nolanguage } }
-		{ #3 }
+	{ #2_\ctuthesis_field_use_default:nn { #1 language } { nolanguage } }
+	{ #3 }
 }
 
 % #1->field
@@ -310,8 +310,8 @@
 % #1->language, #2->field
 \cs_new_protected:Nn \ctuthesis_field_use:nn {
 	\cs_if_exist:cTF { g_ctuthesis_field_#1language_tl }
-		{ \ctuthesis_field_use:n { #2_\ctuthesis_field_use_default:nn { #1 language } { } } }
-		{ \msg_error:nnx { ctuthesis } { unknown-field } { #1 language } }
+	{ \ctuthesis_field_use:n { #2_\ctuthesis_field_use_default:nn { #1 language } { } } }
+	{ \msg_error:nnx { ctuthesis } { unknown-field } { #1 language } }
 }
 
 % Theme, template and field hadling - existance conditionals

@@ -1,9 +1,9 @@
 
-%!TEX ROOT = ctutest.tex
+%!TEX ROOT = thesis.tex
 
 \ProvidesExplFile{ctuth-pkg.tex}%
-	{2016/06/15}{0.1 t1606152353}%MY TIMESTAMP HERE {0.1}
-	{"Packages"\space part\space of\space the\space class\space ctuthesis}
+{2016/06/15}{0.1 t1606152353}%MY TIMESTAMP HERE {0.1}
+{"Packages"\space part\space of\space the\space class\space ctuthesis}
 
 % A lot of the code here is not latex3, but rather the good'ol latex2e code. The reason is that
 % it heavily depends on l2e packages, and we decided not to mix the code together too much.
@@ -26,8 +26,8 @@
 % Used for setting title, main or second language
 \NewDocumentCommand \selectctulanguage { m } {
 	\ctuthesis_field_exists:nTF { #1 language }
-		{ \exp_args:Nx \selectlanguage { \ctuthesis_field_use_default:nn { #1 language } { } } }
-		{ \msg_error:nnx { ctuthesis } { unknown-field } { #1 language } }
+	{ \exp_args:Nx \selectlanguage { \ctuthesis_field_use_default:nn { #1 language } { } } }
+	{ \msg_error:nnx { ctuthesis } { unknown-field } { #1 language } }
 }
 
 
@@ -129,42 +129,42 @@
 	% We are narrow, so we wanna be sloppy
 	\sloppy
 	% Chapter behaves differently. Both the [] argument and the star * are ignored.
-%	\DeclareDocumentCommand\chapter{ s o m }{\relax
-%		% Vertical adjustment
-%		\vspace* { -\baselineskip }
-%		\nointerlineskip
-%		% Zero measure vertical box, the contents are raised by something and typeset
-%		\vbox to 0pt{\noindent\leavevmode\smash{\raise6pt\hbox to \linewidth{%
-%			% In the first column its right-aligned, in the second left-aligned.
-%			% It can't be more than one line.
-%			\if@firstcolumn\hfil\fi
-%			\color{ctubluetext}\LARGE\bfseries\sffamily##3
-%			\if@firstcolumn\else\hfil\fi
-%		}}}
-%		\everypar{\noindent}
-%	}
+	%	\DeclareDocumentCommand\chapter{ s o m }{\relax
+	%		% Vertical adjustment
+	%		\vspace* { -\baselineskip }
+	%		\nointerlineskip
+	%		% Zero measure vertical box, the contents are raised by something and typeset
+	%		\vbox to 0pt{\noindent\leavevmode\smash{\raise6pt\hbox to \linewidth{%
+	%			% In the first column its right-aligned, in the second left-aligned.
+	%			% It can't be more than one line.
+	%			\if@firstcolumn\hfil\fi
+	%			\color{ctubluetext}\LARGE\bfseries\sffamily##3
+	%			\if@firstcolumn\else\hfil\fi
+	%		}}}
+	%		\everypar{\noindent}
+	%	}
 	\DeclareDocumentCommand\chapter{ s o m }{\relax
-		% Compute the vertical adjustment
-		\skip_gset:Nn \g_ctuthesis_tempa_skip { - \box_ht:N \strutbox }
-		{ \LARGE \skip_gsub:Nn \g_ctuthesis_tempa_skip { \box_ht:N \strutbox + \box_dp:N \strutbox } }
-		% Space used if not at the beginning of a column
-		\skip_vertical:n { 12pt - \g_ctuthesis_tempa_skip }
-		% Add the space below the chapter title to the adjustment
-		\skip_gsub:Nn \g_ctuthesis_tempa_skip { 2pt }
-		% Vertical adjustment
-		\vspace* { \g_ctuthesis_tempa_skip }
-		% Zero measure vertical box, the contents are raised by something and typeset
-		\noindent \leavevmode
-		\hbox_to_wd:nn \linewidth {
-			% In the first column its right-aligned, in the second left-aligned.
-			% It can't be more than one line.
-			\if@firstcolumn\hfil\fi
-			\leavevmode\color{ctubluetext}\LARGE\strut\bfseries\sffamily##3
-			\if@firstcolumn\else\hfil\fi
-		}\par
-		\skip_vertical:n { 2pt }
-		\everypar{\noindent}
-	}
+	  % Compute the vertical adjustment
+	  \skip_gset:Nn \g_ctuthesis_tempa_skip { - \box_ht:N \strutbox }
+	  { \LARGE \skip_gsub:Nn \g_ctuthesis_tempa_skip { \box_ht:N \strutbox + \box_dp:N \strutbox } }
+	  % Space used if not at the beginning of a column
+	  \skip_vertical:n { 12pt - \g_ctuthesis_tempa_skip }
+	  % Add the space below the chapter title to the adjustment
+	  \skip_gsub:Nn \g_ctuthesis_tempa_skip { 2pt }
+	  % Vertical adjustment
+	  \vspace* { \g_ctuthesis_tempa_skip }
+	  % Zero measure vertical box, the contents are raised by something and typeset
+	  \noindent \leavevmode
+	  \hbox_to_wd:nn \linewidth {
+		  % In the first column its right-aligned, in the second left-aligned.
+		  % It can't be more than one line.
+		  \if@firstcolumn\hfil\fi
+		  \leavevmode\color{ctubluetext}\LARGE\strut\bfseries\sffamily##3
+		  \if@firstcolumn\else\hfil\fi
+	  }\par
+	  \skip_vertical:n { 2pt }
+	  \everypar{\noindent}
+	 }
 	\DeclareDocumentCommand \tableofcontents {  }{ \ctuthesis_maketoc_twocol:nn { toc } { \contentsname } }
 	\DeclareDocumentCommand \listoffigures {  }{ \ctuthesis_maketoc_twocol:nn { lof } { \listfigurename } }
 	\DeclareDocumentCommand \listoftables {  }{ \ctuthesis_maketoc_twocol:nn { lot } { \listtablename } }
@@ -216,7 +216,7 @@
 \RequirePackage [ a4paper ,
 	hmarginratio = \ctuthesis_geometry_hmarginratio: ,
 	textwidth = \g_ctuthesis_geometry_textwidth_dim ,
- 	textheight = \g_ctuthesis_geometry_textheight_dim ,
+	textheight = \g_ctuthesis_geometry_textheight_dim ,
 	vmarginratio = \ctuthesis_geometry_vmarginratio: , ignoreheadfoot ,
 	% Should be at least \baselineskip
 	headheight = 16pt ,
@@ -234,7 +234,7 @@
 		inner = \g_ctuthesis_geometry_innermargin_dim ,
 		% Increase the width by 20%, but do not exceed 420pt
 		textwidth = \dim_min:nn { 420pt } { 1.2 \g_ctuthesis_geometry_textwidth_dim } ,
-	 	textheight = \g_ctuthesis_geometry_textheight_dim ,
+		textheight = \g_ctuthesis_geometry_textheight_dim ,
 		vmarginratio = \ctuthesis_geometry_vmarginratio: ,
 		headheight = 16pt ,
 		ignoreheadfoot ,
@@ -248,7 +248,7 @@
 		inner = \dim_use:N \g_ctuthesis_geometry_innermargin_dim ,
 		% Otherwise it's the same as in \RequirePackage[...]{geometry}
 		textwidth = \dim_use:N \g_ctuthesis_geometry_textwidth_dim ,
-	 	textheight = \g_ctuthesis_geometry_textheight_dim ,
+		textheight = \g_ctuthesis_geometry_textheight_dim ,
 		vmarginratio = \ctuthesis_geometry_vmarginratio: , ignoreheadfoot ,
 		headheight = 16pt ,
 		marginparsep = 10pt ,
@@ -288,7 +288,7 @@
 	#4
 	\noindent\begin{tabular}{@{}l@{\hspace*{\ctu@title@rulesep}}l@{}}
 		\color{ctubluerule}\rule[-\dp\ctu@title@box]{\ctu@title@rulewidth}{\dimexpr\ht\ctu@title@box+\dp\ctu@title@box}
-	&
+		 &
 		\box\ctu@title@box
 	\end{tabular}\hspace*{-10pt}
 	\par
@@ -306,10 +306,10 @@
 	\noindent\begin{tabular}{@{}l@{\hspace*{\ctu@title@rulesep}}l@{}}
 		\color{ctubluerule}
 		\rule
-			[\dimexpr\ht\ctu@title@box-#3-#1]
-			{\ctu@title@rulewidth}
-			{\dimexpr#1+#3}
-	&
+		[\dimexpr\ht\ctu@title@box-#3-#1]
+		{\ctu@title@rulewidth}
+		{\dimexpr#1+#3}
+		 &
 		\box\ctu@title@box
 	\end{tabular}\hspace*{-10pt}
 	\par
@@ -338,7 +338,7 @@
 % The section style, very simply organized, subsection style differs only by a missing check for star variant and mark inclusion
 % Comments to the chapter style apply here too.
 \def\ttlh@ctus#1#2#3#4#5#6#7#8{
-	\ifttl@label\else\sectionstarmark{#8}\fi	
+	\ifttl@label\else\sectionstarmark{#8}\fi
 	\ifttl@label\else\addcontentsline{toc}{section}{#8}\fi
 	\ctu@title@boxify@x{#5}{0pt}{#3}{ #1{\ifttl@label#2\fi\strut\color{ctubluetext}#8\strut} }{}
 }
@@ -352,34 +352,34 @@
 }
 % Modified \ttl@page@ii to use \cleardoublepage instead of some idiocy
 \def\ttl@page@ii#1#2#3#4#5#6#7{%
-  \ttl@assign\@tempskipa#3\relax\beforetitleunit
-  \if@openright
-    \cleardoublepage
-  \else
-    \clearpage
-  \fi
-  \@ifundefined{ttl@ps@#6}%
-    {\thispagestyle{plain}}%
-    {\thispagestyle{\@nameuse{ttl@ps@#6}}}%
-  \if@twocolumn
-    \onecolumn
-    \@tempswatrue
-  \else
-    \@tempswafalse
-  \fi
-  \vspace*{\@tempskipa}%
-  \@afterindenttrue
-  \ifcase#5 \@afterindentfalse\fi
-  \ttl@assign\@tempskipb#4\relax\aftertitleunit
-  \ttl@select{#6}{#1}{#2}{#7}%
-  \ttl@finmarks
-  \@ifundefined{ttlp@#6}{}{\ttlp@write{#6}}%
-  \vspace{\@tempskipb}%
-  \cleardoublepage
-  \if@tempswa
-    \twocolumn
-  \fi
-  \ignorespaces}
+	\ttl@assign\@tempskipa#3\relax\beforetitleunit
+	\if@openright
+		\cleardoublepage
+	\else
+		\clearpage
+	\fi
+	\@ifundefined{ttl@ps@#6}%
+	{\thispagestyle{plain}}%
+	{\thispagestyle{\@nameuse{ttl@ps@#6}}}%
+	\if@twocolumn
+		\onecolumn
+		\@tempswatrue
+	\else
+		\@tempswafalse
+	\fi
+	\vspace*{\@tempskipa}%
+	\@afterindenttrue
+	\ifcase#5 \@afterindentfalse\fi
+	\ttl@assign\@tempskipb#4\relax\aftertitleunit
+	\ttl@select{#6}{#1}{#2}{#7}%
+	\ttl@finmarks
+	\@ifundefined{ttlp@#6}{}{\ttlp@write{#6}}%
+	\vspace{\@tempskipb}%
+	\cleardoublepage
+	\if@tempswa
+		\twocolumn
+	\fi
+	\ignorespaces}
 % Part title setting
 \bool_new:N \g_ctuthesis_title_haspart_bool
 \titleformat \part [ctupt] {\Huge} {{\huge\partname\nobreakspace}\thepart} {0pt} {\huge} [0.6\textheight]
@@ -418,7 +418,7 @@
 	% Call the old \appendix
 	\ctuthesis_title_orig_appendix:
 	% If the document has \part division, let's make "Appendices" a part on their own
-	\bool_if:NT \g_ctuthesis_title_haspart_bool { 
+	\bool_if:NT \g_ctuthesis_title_haspart_bool {
 		% But only make the notice in ToC if * is used
 		\IfBooleanTF { #2 } {
 			% Two stars: If nothing in ToC, at least put there a space.
@@ -458,42 +458,42 @@
 
 % New dottedtocline, differs from the default by having numberline variable-width and accomodating to the number
 \def\ctu@dottedtocline#1#2#3#4#5{\ifnum #1>\c@tocdepth \else
-	\addvspace{0pt plus .2pt}
-	{
-	\leftskip #2\relax
-	\rightskip\dimexpr\@tocrmarg plus 1fil
-	\parfillskip -\rightskip
-	\parindent #3\relax
-	\@afterindenttrue
-	\interlinepenalty\@M
-	\leavevmode
-	\null
-	\nobreak
-	\hskip -\leftskip
-	\def\numberline##1{##1\ }
-	{#4}
-	\nobreak
-	\leaders \hbox {$\m@th \mkern 2mu\hbox {.}\mkern 2mu$}\hfill
-	\nobreak
-	{\kern0.5em#5}
-	\par
-	}
-\fi}
+		\addvspace{0pt plus .2pt}
+		{
+			\leftskip #2\relax
+			\rightskip\dimexpr\@tocrmarg plus 1fil
+			\parfillskip -\rightskip
+			\parindent #3\relax
+			\@afterindenttrue
+			\interlinepenalty\@M
+			\leavevmode
+			\null
+			\nobreak
+			\hskip -\leftskip
+			\def\numberline##1{##1\ }
+			{#4}
+			\nobreak
+			\leaders \hbox {$\m@th \mkern 2mu\hbox {.}\mkern 2mu$}\hfill
+			\nobreak
+			{\kern0.5em#5}
+			\par
+		}
+	\fi}
 
 % Part in ToC: centered, with no pagenumber, bf sf, and with nice space above.
 \def\l@part#1#2{
 	\addvspace{2ex plus .2pt}
 	{
-	\centering
-	\@afterindenttrue
-	\interlinepenalty\@M
-	\leavevmode
-	\null
-	\nobreak
-	\def\numberline##1{\partname \nobreakspace ##1\\}%
-	\sffamily \bfseries
-	#1
-	\par
+		\centering
+		\@afterindenttrue
+		\interlinepenalty\@M
+		\leavevmode
+		\null
+		\nobreak
+		\def\numberline##1{\partname \nobreakspace ##1\\}%
+		\sffamily \bfseries
+		#1
+		\par
 	}\penalty10000\relax
 }
 % Chapter in ToC: bf sf, no leaders, completely left-aligned, the numberline is variable-width,
@@ -501,22 +501,22 @@
 \def\l@chapter#1#2{
 	\addvspace{1ex plus .2pt}
 	{
-	\raggedright
-	\rightskip\dimexpr\@tocrmarg plus 1fil
-	\parfillskip -\rightskip
-	\@afterindenttrue
-	\interlinepenalty\@M
-	\leavevmode
-	\null
-	\nobreak
-	\def\numberline##1{##1\hspace*{0.5em}}
-	\sffamily \bfseries
-	#1
-	\nobreak
-	\hfill
-	\nobreak
-	{\kern0.5em#2}
-	\par
+		\raggedright
+		\rightskip\dimexpr\@tocrmarg plus 1fil
+		\parfillskip -\rightskip
+		\@afterindenttrue
+		\interlinepenalty\@M
+		\leavevmode
+		\null
+		\nobreak
+		\def\numberline##1{##1\hspace*{0.5em}}
+		\sffamily \bfseries
+		#1
+		\nobreak
+		\hfill
+		\nobreak
+		{\kern0.5em#2}
+		\par
 	}\penalty9999\relax
 }
 % The section and lower in Toc. We hope nobody would put `\paragraph`s in ToC
@@ -546,7 +546,7 @@
 		\leavevmode
 		\smash {
 			\color{ctubluerule}
-			\rule [ \dimexpr - \textheight - \headsep - 6pt ]{ 11pt }{ \textheight } 
+			\rule [ \dimexpr - \textheight - \headsep - 6pt ]{ 11pt }{ \textheight }
 		}
 	}
 	\renewcommand { \headrulewidth } { 0pt }
@@ -639,19 +639,19 @@
 \DeclareDocumentCommand \cleardoublepage { s } {
 	\clearpage
 	\if@twoside\ifodd\c@page\else
-%		\IfBooleanTF { #1 } {
+			%		\IfBooleanTF { #1 } {
 			% Starred variant: completely empty page
 			\leavevmode
 			\thispagestyle{empty}
-%		} {
+			%		} {
 			% Non-starred variant: include page number
 			\leavevmode
 			\thispagestyle{cleardoublepage}
-%		}
-		\newpage
-		% In twocolumn, we need \newpage twice
-		\if@twocolumn\hbox{}\newpage\fi
-	\fi\fi
+			%		}
+			\newpage
+			% In twocolumn, we need \newpage twice
+			\if@twocolumn\hbox{}\newpage\fi
+		\fi\fi
 }
 
 
@@ -681,16 +681,16 @@
 \DeclareCaptionJustification{myjustify}{\leftskip.8em \rightskip.8em \parfillskip.8em plus 1fil}
 % float caption: special format
 \DeclareCaptionFormat{myformat}{%
-  % float name bf sf
-  \begingroup\sffamily\bfseries#1#2:~\endgroup
-  % float caption normal font
-  \begingroup#3\par\endgroup
+	% float name bf sf
+	\begingroup\sffamily\bfseries#1#2:~\endgroup
+	% float caption normal font
+	\begingroup#3\par\endgroup
 }
 \DeclareCaptionFormat{mysubformat}{%
-  % float name small caps
-  #1#2 %
-  % float caption normal font
-  \begingroup#3\par\endgroup
+	% float name small caps
+	#1#2 %
+	% float caption normal font
+	\begingroup#3\par\endgroup
 }
 % plain float style is what we like, with captions at the bottom
 \floatstyle{plain}
@@ -759,7 +759,7 @@
 				\fontfamily{lmss}\bfseries\color{#2}.
 			}
 		}
-		\hss		
+		\hss
 	}
 }
 
@@ -768,19 +768,19 @@
 % [#3][#4] are the box color and text color
 % #5 is the text
 \DeclareDocumentCommand \itembox { D(){0.15em} D(){0.15em} >{\TrimSpaces}O{ctubluebg} >{\TrimSpaces}O{black} >{\TrimSpaces}m } {
-	\ooalign{
-		\hfil \ctuthesis_list_enumdot:nn {1} {#3}
+\ooalign{
+	\hfil \ctuthesis_list_enumdot:nn {1} {#3}
 	\cr
-		\ctuthesis_list_enumdot:nn {1} {#3} \hfil
+	\ctuthesis_list_enumdot:nn {1} {#3} \hfil
 	\cr
-		\skip_horizontal:n { 0.34\ht\strutbox + 0.34\dp\strutbox }
-		\cleaders \ctuthesis_list_enumdot:nn {0.34} {#3} \hfil
-		\skip_horizontal:n { 0.34\ht\strutbox + 0.34\dp\strutbox }
+	\skip_horizontal:n { 0.34\ht\strutbox + 0.34\dp\strutbox }
+	\cleaders \ctuthesis_list_enumdot:nn {0.34} {#3} \hfil
+	\skip_horizontal:n { 0.34\ht\strutbox + 0.34\dp\strutbox }
 	\cr
-		\hfil
-		\hbox:n { \hspace{#1} { \color{#4} #5 } \hspace{#2} }
-		\hfil
-	}
+	\hfil
+	\hbox:n { \hspace{#1} { \color{#4} #5 } \hspace{#2} }
+	\hfil
+}
 }
 
 % Redefine the enumerate labels. The first two levels are boxed,
@@ -817,7 +817,7 @@
 
 	% Default style: plain
 	\theoremstyle{plain}
-	
+
 	% We redefine proof to include a more reasonable spacing above it.
 	\DeclareDocumentEnvironment { proof } { O{\proofname} } {
 		\par
@@ -825,16 +825,16 @@
 		\normalfont \topsep0pt plus 1pt
 		\trivlist
 		\item[
-			\hskip\labelsep
-		    \itshape
-			#1\@addpunct{.}
-		]
+		            \hskip\labelsep
+		            \itshape
+		            #1\@addpunct{.}
+		      ]
 		\ignorespaces
 	}{
 		\popQED\endtrivlist\@endpefalse
 	}
 
-}	
+}
 
 
 
@@ -851,24 +851,24 @@
 
 	% We use multicol rather than twocolumn for the index
 	\usepackage{multicol}
-	
+
 	% Redefine the index environment to just make the header and start the multicols* envrionment
 	% (starred because we don't want to balance the columns), then redefine \item as in original theindex
 	\DeclareDocumentEnvironment { theindex } { } {
 		\chapter* {\indexname }
 		\begin{multicols*}{2}
-		\let\item\@idxitem
-		% Do not put index sections in ToC. We save the tocdepth and set it to zero, only to restore it after.
-		\addtocontents{toc}{\protect\ctu@savetocdepth}
-		\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
-		% Inside index, the sections are tighter together
-		\titlespacing*\section{}{10pt}{4pt}
-	} {
-		\addtocontents{toc}{\protect\ctu@restoretocdepth}
+			\let\item\@idxitem
+			% Do not put index sections in ToC. We save the tocdepth and set it to zero, only to restore it after.
+			\addtocontents{toc}{\protect\ctu@savetocdepth}
+			\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+			% Inside index, the sections are tighter together
+			\titlespacing*\section{}{10pt}{4pt}
+			} {
+			\addtocontents{toc}{\protect\ctu@restoretocdepth}
 		\end{multicols*}
 		\clearpage
 	}
-	
+
 	% How does this work: in \ctu@tocdepth we save the current tocdepth
 	\newcommand\ctu@savetocdepth{\xdef\ctu@saved@tocdepth{\the\c@tocdepth}}
 	% This macro restores the saved value.
@@ -889,11 +889,11 @@
 		columns = fullflexible,
 		keepspaces = true,
 		tabsize = 4,
-%		frame = leftline,
-%		framesep = 0pt,
-%		framexleftmargin = 3pt,
-%		framerule = 0.667pt,
-%		rulecolor = \color{ctubluerule},
+		%		frame = leftline,
+		%		framesep = 0pt,
+		%		framexleftmargin = 3pt,
+		%		framerule = 0.667pt,
+		%		rulecolor = \color{ctubluerule},
 		frame = single,
 		framesep = 0pt,
 		framexleftmargin = 2pt,
@@ -910,11 +910,11 @@
 		\leavevmode
 		\microtypesetup{activate=false}
 		\begin{lrbox}{\ctuthesis_lst_box}
-		\ctuthesis_lst_orig_lstinline:w[#2]#3#4#3
+			\ctuthesis_lst_orig_lstinline:w[#2]#3#4#3
 		\end{lrbox}
 		\str_if_eq:xnTF {#1} {none}
-			{{ \hbox:n {\strut\hspace*{\ctulstsep}\box\ctuthesis_lst_box\hspace*{\ctulstsep}} }}
-			{{ \fboxsep0pt\colorbox{#1} {\strut\hspace*{\ctulstsep}\box\ctuthesis_lst_box\hspace*{\ctulstsep}} }}
+		{{ \hbox:n {\strut\hspace*{\ctulstsep}\box\ctuthesis_lst_box\hspace*{\ctulstsep}} }}
+		{{ \fboxsep0pt\colorbox{#1} {\strut\hspace*{\ctulstsep}\box\ctuthesis_lst_box\hspace*{\ctulstsep}} }}
 		\microtypesetup{activate=true}
 	}
 	\DeclareDocumentCommand \ctulst { D(){\g_ctuthesis_ctulstbg_tl} O{} m } {
@@ -923,7 +923,7 @@
 	\DeclareDocumentCommand \ctulstbr { D(){ctulstbg} O{} m } {
 		\leavevmode
 		\begin{lrbox}{\ctuthesis_lst_box}
-		\ctuthesis_lst_orig_lstinline:w[#2]{#3}
+			\ctuthesis_lst_orig_lstinline:w[#2]{#3}
 		\end{lrbox}
 		\colorbox{#1}{\box\ctuthesis_lst_box}
 	}
@@ -950,10 +950,10 @@
 	\tl_new:N \g_ctuthesis_hyperref_pdfinfo_tl
 	\tl_set:Nx \g_ctuthesis_hyperref_pdfinfo_tl {
 		pdfinfo = {
-			Title = \ctuthesis_field_use:nn { title } { title },
-			Author = \ctuthesis_field_use:n { author },
-		}
-	} 
+				Title = \ctuthesis_field_use:nn { title } { title },
+				Author = \ctuthesis_field_use:n { author },
+			}
+	}
 	\exp_args:NV \hypersetup \g_ctuthesis_hyperref_pdfinfo_tl
 }{}
 
