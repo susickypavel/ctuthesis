@@ -22,6 +22,10 @@ This repository is a fork of https://github.com/tohecz/ctuthesis. Most of the or
 6. Check out the original [**manual**](./manual.pdf) if you want to customize the thesis to your liking
 7. Have fun writing your awesome thesis!
 
+### 1.2.1 TODOs
+
+To make your life a little bit easier, there are several `TODO: ` comments placed across the `*.tex` files to let you know that you should change their content before submitting your work.
+
 # 2. Structure
 
 ```ini
