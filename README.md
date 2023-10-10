@@ -6,8 +6,9 @@ This repository is a fork of https://github.com/tohecz/ctuthesis. Most of the or
 
 ## 1.1 Prerequisites
 
-- [**VSCode LaTeX workshop**](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
-- [**TexLive distribution**](https://tug.org/texlive/)
+- [**Visual Studio Code**](https://code.visualstudio.com)
+- [**VSCode LaTeX workshop extension**](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+- [**TexLive**](https://tug.org/texlive)
 
 > [!NOTE]
 > MacOS users: Make sure you have `latexindent` installed on your machine. Otherwise, LaTeX workshop may have trouble formatting your sources.
