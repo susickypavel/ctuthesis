@@ -1,4 +1,6 @@
-# Pavel Sušický's Bachelor Thesis
+# ctuthesis
+
+This repository is a fork of https://github.com/tohecz/ctuthesis. Most of the original files are present but the folder structure is cleaner to work with. It's designed to work well with Visual Studio Code and a LaTeX workshop extension.
 
 # 1. Installation
 
@@ -16,7 +18,7 @@
 2. Open the [**workspace file**](./.vscode/thesis.code-workspace) using Visual Studio Code
 3. Open `thesis.tex` (your root file, this should include all the other `*.tex` files)
 4. Make your changes and hit save
-5. `.build` folder should be generated in the root of the workspace with bunch of intermediate files and a final [**pdf**](./.build/thesis.pdf).
+5. `.build` folder should be generated in the root of the workspace with bunch of intermediate files and a final [**pdf**](./.build/thesis.pdf)[^1].
 6. Check out the original [**manual**](./manual.pdf) if you want to customize the thesis to your liking
 7. Have fun writing your awesome thesis!
 
@@ -45,3 +47,5 @@
 # 3. N2H
 
 - [ ] Technica font
+
+[^1]: Files under `.build` folder are not commited to version control system.
