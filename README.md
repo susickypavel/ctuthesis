@@ -24,8 +24,8 @@
 ```ini
 .build/ # Build directory (this is where your pdf file will live)
 src/ # Source directory
-├─ assets/
-│  ├─ ctuth-core.tex
+├─ assets/ # Asset directory, mainly CTU logo and font
+│  ├─ ctu_logo_black.pdf
 ├─ common/ # (almost) original ctuthesis *.tex files
 │  ├─ ctuth-core.tex
 │  ├─ ctuth-names.tex
@@ -37,3 +37,7 @@ ctuthesis.cls # LaTeX class file that makes all the magic, don't worry about it 
 ctuthesis.ist
 thesis.tex # Entry tex file for your thesis
 ```
+
+# 3. N2H
+
+- [ ] Technica font
