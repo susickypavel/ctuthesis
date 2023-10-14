@@ -9,6 +9,8 @@ This repository is a fork of https://github.com/tohecz/ctuthesis. Most of the or
 - [**Visual Studio Code**](https://code.visualstudio.com)
 - [**VSCode LaTeX workshop extension**](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 - [**TexLive**](https://tug.org/texlive)
+    - chktex (linter - usually comes with TexLive)
+    - latexindent (formatter)
 
 > [!NOTE]
 > MacOS users: Make sure you have `latexindent` installed on your machine. Otherwise, LaTeX workshop may have trouble formatting your sources.
@@ -25,7 +27,7 @@ This repository is a fork of https://github.com/tohecz/ctuthesis. Most of the or
 
 ### 1.2.1 TODOs
 
-To make your life a little bit easier, there are several `TODO: ` comments placed across the `*.tex` files to let you know that you should change their content before submitting your work.
+To make your life a little bit easier, there are several `TODO` comments placed across the `*.tex` files to let you know that you should change their content before submitting your work.
 
 # 2. Structure
 
