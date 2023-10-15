@@ -1,0 +1,17 @@
+name: ci
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ./src/thesis.tex
+          texlive_version: latest
+        env:
+          TEXINPUTS: ".:./src:./src/common"
