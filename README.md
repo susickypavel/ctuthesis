@@ -48,9 +48,9 @@ To make your life a little bit easier, there are several `TODO` comments placed 
 │  │  ├─ ctuth-names.tex
 │  │  ├─ ctuth-templates.tex
 │  │  ├─ ctuth-pkg.tex
-│  │  ├─ ctuthesis.cls # LaTeX class file that makes all the magic, don't worry about it too much.
 │  ├─ documents/ # Directory for all sorts of documents
 │  │  ├─ zadani.pdf # Specification of your thesis
+│  ├─ ctuthesis.cls # LaTeX class file that makes all the magic, don't worry about it too much.
 │  ├─ thesis.ist # Formatting configuration for Index of the document
 │  ├─ thesis.bib # Bibliography references
 │  ├─ thesis.tex # Entry tex file for your thesis

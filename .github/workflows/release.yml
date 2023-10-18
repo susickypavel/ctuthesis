@@ -1,0 +1,29 @@
+name: release
+
+on:
+  push:
+    tags: 
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: thesis.tex
+          texlive_version: latest
+          working_directory: src
+
+      - run: echo "TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+    
+      - uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: src/thesis.pdf
+          asset_name: thesis-${{ env.TAG }}.pdf
+          tag: ${{ github.ref }}
