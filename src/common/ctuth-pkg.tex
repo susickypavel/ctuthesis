@@ -14,9 +14,6 @@
 \RequirePackage{graphicx}
 \RequirePackage{pdfpages}
 
-
-
-
 %%% BABEL -- LANGUAGE HANDLING
 
 % The loading of the languages is a bit wicked, but it works this way. We load the main language once more
@@ -29,12 +26,6 @@
 	{ \exp_args:Nx \selectlanguage { \ctuthesis_field_use_default:nn { #1 language } { } } }
 	{ \msg_error:nnx { ctuthesis } { unknown-field } { #1 language } }
 }
-
-
-
-
-
-
 
 %%% COLORS, TEXT FLOW
 
@@ -92,11 +83,6 @@
 \setlength{\parskip}{0pt plus 1pt}
 
 \setlength{\parindent}{11.2pt}
-
-
-
-
-
 
 %%% FRONT MATTER --- TWOCOLUMN HANDLING
 
@@ -175,11 +161,6 @@
 	\pagestyle{plain}
 }
 
-
-
-
-
-
 %%% LANGUAGES
 
 % For every of the languages below, if it's initialized, add the
@@ -187,10 +168,6 @@
 \@ifundefined{captionsenglish}{}{\g@addto@macro\captionsenglish{\ctucaptionsenglish}}
 \@ifundefined{captionsczech}{}{\g@addto@macro\captionsczech{\ctucaptionsczech}}
 \@ifundefined{captionsslovak}{}{\g@addto@macro\captionsslovak{\ctucaptionsslovak}}
-
-
-
-
 
 %%% GEOMETRY
 
@@ -259,11 +236,6 @@
 
 % Re-initialize the geometry
 \ctuthesis_geometry_plain:
-
-
-
-
-
 
 %%% TITLES
 
@@ -527,11 +499,6 @@
 \def\l@figure{\ctu@dottedtocline{-2}{0.6em}{0em}}
 \let\l@table\l@figure
 
-
-
-
-
-
 %%% FANCY HEADERS
 
 \RequirePackage{fancyhdr}
@@ -654,11 +621,6 @@
 		\fi\fi
 }
 
-
-
-
-
-
 %%% FLOATS
 
 \usepackage{float,caption}
@@ -711,11 +673,6 @@
 % colored tables
 \newenvironment{ctucolortab}{\begin{lrbox}{0}}{\end{lrbox}\ht0\dimexpr\ht0 + 2pt\relax{\fboxsep0pt\colorbox{ctubluebg}{\usebox{0}}}}
 \newenvironment{ctucolortab*}{\begin{lrbox}{0}}{\end{lrbox}{\fboxsep0pt\colorbox{ctubluebg}{\usebox{0}}}}
-
-
-
-
-
 
 %%% LISTS
 
@@ -794,12 +751,6 @@
 \leftmargini22.2pt
 \labelsep6pt
 
-
-
-
-
-
-
 %%% MATH, THEOREMS
 
 \usepackage{amsmath,amssymb,amsfonts}
@@ -836,11 +787,6 @@
 
 }
 
-
-
-
-
-
 %%% INDEX
 
 \ctuthesis_if_switch:nT { pkg-makeidx } {
@@ -874,10 +820,6 @@
 	% This macro restores the saved value.
 	\newcommand\ctu@restoretocdepth{\global\c@tocdepth\ctu@saved@tocdepth\relax}
 }
-
-
-
-
 
 %%% LISTINGS
 
@@ -929,11 +871,6 @@
 	}
 }
 
-
-
-
-
-
 %%% HYPERREF
 
 \ctuifswitch { pkg-hyperref } {
@@ -961,11 +898,6 @@
 %	\hypersetup{colorlinks=false,linktocpage=true,linkbordercolor=0 122 195}
 %}
 
-
-
-
-
-
 %%% VARIOUS TWEAKS
 
 % Provide \phantomsection and \texorpdfstring to make them available in case hyperref wasn't loaded
@@ -973,12 +905,5 @@
 \providecommand\texorpdfstring[2]{#1}
 % Provide \microtypesetup to make it available in case microtype wasn't loaded
 \providecommand\microtypesetup[1]{}
-
-
-
-
-
-
-
 
 \endinput
