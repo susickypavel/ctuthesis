@@ -22,6 +22,11 @@
     front-specification={true}
 }
 
+\usepackage{csquotes}
+\usepackage[style=numeric,backend=biber]{biblatex}
+
+\addbibresource{thesis.bib}
+
 \ctuprocess{}
 
 \begin{thanks}
@@ -68,12 +73,8 @@ Rozvíjíme \ldots
 
 \chapter{Conclusion}
 
-Lorep ipsum~\cite{doe}
+xd~\cite{key}
 
-\begin{thebibliography}{1}
-
-    \bibitem{doe} J. Doe.\ \emph{Book on foobar.} Publisher X, 2300.
-
-\end{thebibliography}
+\printbibliography{}
 
 \end{document}

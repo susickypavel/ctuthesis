@@ -9,11 +9,16 @@ This repository is a fork of https://github.com/tohecz/ctuthesis. Most of the or
 - [**Visual Studio Code**](https://code.visualstudio.com)
 - [**VSCode LaTeX workshop extension**](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 - [**TexLive**](https://tug.org/texlive)
-    - chktex (linter - usually comes with TexLive)
+    - chktex (included in TexLive)
     - latexindent (formatter)
 
 > [!NOTE]
 > MacOS users: Make sure you have `latexindent` installed on your machine. Otherwise, LaTeX workshop may have trouble formatting your sources.
+
+### 1.1.1 Required LaTeX packages
+
+- [**biblatex**](https://bibtex.eu/cs/biblatex/) (included in TexLive)
+- [**csquotes**](https://ctan.org/pkg/csquotes) (included in TexLive)
 
 ## 1.2 Usage
 
@@ -43,10 +48,11 @@ To make your life a little bit easier, there are several `TODO` comments placed 
 │  │  ├─ ctuth-names.tex
 │  │  ├─ ctuth-templates.tex
 │  │  ├─ ctuth-pkg.tex
+│  │  ├─ ctuthesis.cls # LaTeX class file that makes all the magic, don't worry about it too much.
 │  ├─ documents/ # Directory for all sorts of documents
 │  │  ├─ zadani.pdf # Specification of your thesis
-│  ├─ ctuthesis.cls # LaTeX class file that makes all the magic, don't worry about it too much.
-│  ├─ ctuthesis.ist
+│  ├─ thesis.ist # Formatting configuration for Index of the document
+│  ├─ thesis.bib # Bibliography references
 │  ├─ thesis.tex # Entry tex file for your thesis
 ├─ manual.pdf # Original ctuthesis manual
 ```
