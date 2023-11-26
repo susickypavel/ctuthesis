@@ -25,7 +25,7 @@ Most of the required packages are included in the full distribution of TexLive. 
 - [**titlesec**](https://www.ctan.org/pkg/titlesec)
 - [**fancyhdr**](https://www.ctan.org/pkg/fancyhdr)
 - [**caption**](https://www.ctan.org/pkg/caption)
-- [**pdflscape**](https://www.ctan.org/pkg/pdfscape)
+- [**pdflscape**](https://www.ctan.org/pkg/pdflscape)
 - [**biber**](https://www.ctan.org/pkg/biber)
 - [**makeindex**](https://www.ctan.org/pkg/makeindex)
 - [**babel-czech**](https://www.ctan.org/pkg/babel-czech)
