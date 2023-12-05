@@ -42,9 +42,10 @@ These packages aren't needed for the compilation of the project to work. However
 
 - [chktex](https://www.ctan.org/pkg/chktex)
 - [latexindent](https://www.ctan.org/pkg/latexindent)
+- [texcount](https://ctan.org/pkg/texcount)
 
 ```sh
-tlmgr install chktex latexindent
+tlmgr install chktex latexindent texcount
 ```
 
 ## 1.2 Usage
